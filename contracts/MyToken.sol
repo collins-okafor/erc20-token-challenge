@@ -9,7 +9,7 @@ contract MyToken is ERC20, AccessControl {
 
     bytes32 public constant MINTER_ROLE = keccak256("MINTER_ROLE");
 
-    constructor(uint256 initialSupply) ERC20("Sonet Token", "CIO"){
+    constructor(uint256 initialSupply) ERC20("My Token", "CIO"){
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
         _grantRole(MINTER_ROLE, msg.sender);
         _mint(msg.sender, initialSupply * 10 ** decimals());
