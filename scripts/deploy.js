@@ -4,8 +4,10 @@ async function main() {
   const [deployer] = await ethers.getSigners();
   console.log("Deploying contracts with the account:", deployer.address);
 
-  const balance = await deployer.getBalance();
-  console.log("Account balance:", ethers.utils.formatEther(balance));
+  const balance = await deployer.provider.getBalance(deployer.address);
+  // console.log("Account balance:", ethers.utils.formatEther(balance));
+  // const balanceInEther = ethers.utils.formatUnits(balance, "ether");
+  console.log("Account balance:", (await deployer.getBalance()).toString());
 
   const Token = await ethers.getContractFactory("MyToken");
   const token = await upgrades.deployProxy(Token, [50000000000]);
