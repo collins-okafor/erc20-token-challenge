@@ -1,7 +1,7 @@
 
 import Web3 from "web3";
 
-const web3 = new Web3("http://localhost:8545");
+const web3 = new Web3("http://localhost:8546");
 async function main() {
   const account = web3.eth.accounts.create(web3.utils.randomHex(32));
   console.log(account);
